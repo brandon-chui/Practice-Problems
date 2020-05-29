@@ -64,3 +64,27 @@ function divisibleSumPairs(n, k, ar) {
     }
     return count;
 }
+
+// longest substring without repeating characters
+
+// /**
+//  * @param {string} s
+//  * @return {number}
+//  */
+var lengthOfLongestSubstring = function(s) {
+    let count = 0;
+    let i = 0;
+    let j = 1;
+    let sub = s[0]
+    while (j <= s.length && i < s.length) {
+        sub = s.slice(i, j);
+        if (sub.includes(s[j]) || !s[j]) {
+            i++;
+        } else if (!sub.includes(s[j])) {
+            j++;
+        }
+        count = sub.length > count ? sub.length : count;
+    }
+    
+    return count;
+};
