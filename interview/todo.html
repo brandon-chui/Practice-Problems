@@ -1,0 +1,107 @@
+<!--
+
+TASK LIST
+---------
+
+Task #1 - Fix not being able to add todos
+- Typing a todo in the input and pressing Enter should add it to the list.
+
+Task #2 - Add "{numActiveTodos} item(s) left" status in footer
+- Reference image: https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-640/todo-static.png
+- The number is a count of to-dos that have not been completed.
+- The positioning should be similar to the static image. It doesn’t have to be pixel perfect.
+
+Task #3 - Add "Clear completed" button in footer
+- Clicking the button removes all the completed todos.
+- Button is right-aligned and vertically centered inside the footer.
+- Button is ONLY VISIBLE if there are completed todos, otherwise invisible.
+- Style the button so it appears the same as in the static image.
+
+BONUS
+
+Task #4 - Add item filtering (e.g. all, active, completed) in footer
+- Animated GIF: https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-640/todo-animated.gif
+- Filters are placed in the footer, between the active item label on the left and the clear completed button on the right.
+- Clicking a filter selects it and filters the list of todos.
+- Style the filter buttons so they show a light gray border on hover and a light gray background color when selected.
+
+Task #5 - Reset filter to "all" whenever todo list becomes empty
+- If the last todo is deleted the filter should reset to "all".
+- If Clear Completed is clicked and all the todos are removed the filter should reset to "all".
+
+-->
+
+<!-- TEMPLATES -->
+
+<!-- APP -->
+
+<script
+	id="app-template"
+	type="text/x-mustache-template"
+>
+	<div id="app">
+		<!-- HEADER -->
+		<!-- LIST -->
+		<!-- FOOTER -->
+	</div>
+</script>
+
+<!-- HEADER -->
+
+<script
+	id="header-template"
+	type="text/x-mustache-template"
+>
+	<header class="header">
+		<input
+			class="new-todo"
+  		autocomplete="off"
+  		spellcheck="false"
+  		type="text"
+			placeholder="What needs to be done?"
+		>
+	</header>
+</script>
+
+<!-- LIST -->
+
+<script
+	id="list-template"
+	type="text/x-mustache-template"
+>
+	<ul class="list">
+		<!-- TODOS -->
+	</ul>
+</script>
+
+<!-- TODO -->
+
+<script
+	id="todo-template"
+	type="text/x-mustache-template"
+>
+	<li class="todo {{ isCompleted }}">
+		<i class="far fa-check-circle toggle icon">
+		</i>
+		<div class="name">
+			{{ name }}
+		</div>
+		<i class="fas fa-times destroy icon">
+		</i>
+	</li>
+</script>
+
+<!-- FOOTER -->
+
+<script
+	id="footer-template"
+	type="text/x-mustache-template"
+>
+	<footer class="footer {{ hideFooter }} {{ hasFooter }}">
+
+		<p><b>{{numberOfTodos}}</b> item(s) left</p>
+      
+    <button class='remove'>Clear Completed</button>
+
+	</footer>
+</script>

@@ -1,0 +1,173 @@
+/* VARIABLES */
+
+:root {
+	--foreground: #fff;
+	--background: #f5f5f5;
+
+	--light-gray: #ddd;
+	--medium-gray: #c9c9c9;
+	--heavy-gray: #666;
+	--black: #333;
+
+	--checked-green: #4bb543;
+	--destroy-red: #cc9a9a;
+	--destroy-red-hover: #af5b5b;
+	--selected-blue: #39c;
+
+	--border: 1px solid var(--light-gray);
+	--border-radius: 8px;
+
+	--button-padding: 6px 8px;
+}
+
+/* GENERAL */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	background: var(--background);
+	color: var(--black);
+	user-select: none;
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	background: none;
+	border: none;
+}
+
+ul {
+	list-style: none;
+}
+
+.icon {
+	width: 64px;
+	font-size: 20px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+/* APP */
+
+#app {
+	background: var(--foreground);
+	margin-top: 64px;
+	width: 640px;
+	border-radius: var(--border-radius);
+	box-shadow:
+		0 0 2px 0 rgba(30, 30, 30, 0.2),
+		0 2px 2px 0 rgba(30, 30, 30, 0.3);
+}
+
+/* HEADER */
+
+.header {
+	display: flex;
+}
+
+.new-todo {
+	flex-grow: 1;
+	font-size: 24px;
+	padding: 16px 64px;
+}
+
+.new-todo::placeholder {
+	font-style: italic;
+	color: var(--light-gray);
+}
+
+/* LIST */
+
+.list {
+	border-top: var(--border);
+}
+
+/* TODO */
+
+.todo {
+	display: flex;
+	height: 64px;
+	align-items: stretch;
+	border-bottom: var(--border);
+	font-size: 24px;
+}
+
+/* TODO TOGGLE */
+
+.toggle {
+	font-size: 28px;
+	color: var(--light-gray);
+	padding-right: 8px;
+}
+
+.todo.completed .toggle {
+	color: var(--checked-green);
+}
+
+/* TODO NAME */
+
+.name {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.todo.completed .name {
+	font-style: italic;
+	text-decoration: line-through;
+	color: var(--medium-gray);
+}
+
+/* TODO DESTROY */
+
+.destroy {
+	color: var(--destroy-red);
+	visibility: hidden;
+}
+
+.destroy:hover {
+	color: var(--destroy-red-hover);
+}
+
+.todo:hover .destroy {
+	visibility: visible;
+}
+
+/* TODO: add footer styles below */
+
+.footer {
+  color: var(--heavy-gray);
+}
+
+.footer p {
+  height: 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+/* UTILITIES */
+
+.invisible {
+	visibility: hidden;
+}
+
+.hidden {
+	display: none;
+}
