@@ -16,33 +16,60 @@ Output : false
 
 import React from "react";
 
-function Palindrome() {
-  const [isPalindrome, setIsPalindrome] = React.useState(false);
-  const input = "madam";
+// function Palindrome() {
+//   const [isPalindrome, setIsPalindrome] = React.useState(false);
+//   const input = "madam";
 
-  React.useEffect(() => {
-    function palindrome(str) {
-      let i = 0;
-      let j = str.length - 1;
-      while (i <= j) {
-        if (str[i] === str[j]) {
-          i++;
-          j--;
-        } else {
-          return false;
-        }
-      }
-      return true;
-    }
-    setIsPalindrome(palindrome(input));
-  });
+//   React.useEffect(() => {
+//     function palindrome(str) {
+//       let i = 0;
+//       let j = str.length - 1;
+//       while (i <= j) {
+//         if (str[i] === str[j]) {
+//           i++;
+//           j--;
+//         } else {
+//           return false;
+//         }
+//       }
+//       return true;
+//     }
+//     setIsPalindrome(palindrome(input));
+//   });
 
-  return (
-    <>
-      <div>Input: {input}</div>
-      <div>Output: {isPalindrome.toString()}</div>
-    </>
-  );
+//   return (
+//     <>
+//       <div>Input: {input}</div>
+//       <div>Output: {isPalindrome.toString()}</div>
+//     </>
+//   );
+// }
+
+// export default Palindrome;
+const input = "madama";
+export default class Palindrome extends React.Component {
+  state = {
+    isPalindrome: false
+  };
+
+  // componentDidMount() {
+  //   let res = input === input.split('').reverse().join('')
+  //   this.setState({isPalindrome: res})
+  // }
+
+  handleClick(str) {
+    let res = str === str.split('').reverse().join('')
+    this.setState({ isPalindrome: res })
+  }
+
+  render() {
+    
+
+    return (
+      <>
+        <div>Input: {input}</div>
+        <div>Output: {this.state.isPalindrome.toString()}</div>
+      </>
+    );
+  }
 }
-
-export default Palindrome;
