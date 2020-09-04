@@ -49,7 +49,7 @@ export default class FizzBuzz extends React.Component {
 
   render() {
 
-    const fb = this.fizzbuzz(this.state.count)
+    const fb = this.fizzbuzz(this.state.count);
 
     return (
       <>

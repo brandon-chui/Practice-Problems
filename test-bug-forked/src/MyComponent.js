@@ -16,7 +16,7 @@ export default class MyComponent extends React.Component {
         <p>Hello {this.state.name}</p>
         <ul>
           {lists.map((listNo, index) => (
-            <li>{listNo}</li>
+            <li key={index}>{listNo}</li>
           ))}
         </ul>
       </div>
